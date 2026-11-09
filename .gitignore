@@ -18,3 +18,6 @@ shots/
 .DS_Store
 Thumbs.db
 *.log
+
+# Local Netlify folder
+.netlify
