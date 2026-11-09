@@ -1,0 +1,22 @@
+# Optional one-click backend blueprint for Render (https://render.com).
+# Netlify serves the client; this service runs Express + Socket.IO + WebRTC
+# signaling. Fill the secret values in the Render dashboard after creating it.
+services:
+  - type: web
+    name: aura-chat-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: SUPABASE_STORAGE_BUCKET
+        value: aura-uploads

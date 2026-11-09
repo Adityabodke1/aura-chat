@@ -1,0 +1,9 @@
+@import './styles/base.css';
+@import './styles/auth.css';
+@import './styles/shell.css';
+@import './styles/chat.css';
+@import './styles/social.css';
+@import './styles/modals.css';
+@import './styles/calls.css';
+@import './styles/theme.css';
+@import './styles/responsive.css';

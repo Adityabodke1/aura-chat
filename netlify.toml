@@ -1,0 +1,37 @@
+# Netlify hosts the static Vite client. The Express + Socket.IO API must run on
+# a separate long-lived host (Render, Railway, Fly.io, a VPS…), because Netlify
+# Functions cannot keep persistent WebSocket connections open.
+#
+# Set these in Netlify → Site configuration → Environment variables, then
+# trigger a new deploy (Vite inlines them at build time):
+#   VITE_API_URL     = https://YOUR-SERVICE.onrender.com
+#   VITE_SOCKET_URL  = https://YOUR-SERVICE.onrender.com
+#
+# On the backend set:
+#   CLIENT_ORIGIN    = https://your-site.netlify.app
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# React Router / SPA fallback: every unknown path gets the app shell.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "microphone=(self), camera=(self), display-capture=(self)"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

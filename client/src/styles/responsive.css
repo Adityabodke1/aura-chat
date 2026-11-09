@@ -1,0 +1,228 @@
+/* ================================================================
+   Responsive adjustments
+   ================================================================ */
+
+@media (max-width: 1180px) {
+  .members-panel {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .guild-rail {
+    width: 64px;
+    flex-basis: 64px;
+  }
+
+  .rail-item,
+  .rail-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .rail-pill {
+    left: -8px;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 64px;
+    top: 0;
+    bottom: 0;
+    z-index: 70;
+    transform: translateX(calc(-100% - 70px));
+    transition: transform 0.24s var(--ease-out);
+    box-shadow: 12px 0 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+  .mobile-scrim {
+    position: fixed;
+    inset: 0;
+    left: 64px;
+    z-index: 65;
+    background: rgba(0, 0, 0, 0.55);
+    animation: fade 0.15s ease;
+  }
+
+  .mobile-menu {
+    display: inline-flex;
+  }
+
+  .chat-view,
+  .friends-view {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .toast-stack {
+    bottom: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .friends-header h1 {
+    display: none;
+  }
+
+  .friends-header {
+    gap: 6px;
+  }
+
+  .guild-rail {
+    width: 56px;
+    flex-basis: 56px;
+    gap: 7px;
+    padding: 8px 0;
+  }
+
+  .rail-item,
+  .rail-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .rail-item.active .rail-pill {
+    height: 32px;
+  }
+
+  .rail-item:hover .rail-icon {
+    border-radius: 14px;
+  }
+
+  .rail-home .rail-icon svg {
+    width: 23px;
+    height: 23px;
+  }
+
+  .rail-divider {
+    width: 26px;
+  }
+
+  .sidebar {
+    left: 56px;
+  }
+
+  .mobile-scrim {
+    left: 56px;
+  }
+
+  .chat-header {
+    padding: 0 10px;
+    gap: 6px;
+  }
+
+  .chat-header-name {
+    font-size: 15px;
+    max-width: 130px;
+  }
+
+  .header-divider,
+  .chat-header-status {
+    display: none;
+  }
+
+  .invite-pill {
+    display: none;
+  }
+
+  .header-icon-btn,
+  .mobile-menu {
+    width: 30px;
+    height: 30px;
+  }
+
+  .message {
+    padding-left: 10px;
+    padding-right: 16px;
+    gap: 9px;
+  }
+
+  .message-avatar-col {
+    width: 36px;
+    flex-basis: 36px;
+  }
+
+  .system-message {
+    padding-left: 48px;
+  }
+
+  .typing-bar {
+    padding-left: 48px;
+  }
+
+  .composer-shell {
+    padding: 0 8px 10px;
+  }
+
+  .composer textarea {
+    font-size: 16px;
+  }
+
+  .emoji-picker {
+    width: 264px;
+  }
+
+  .emoji-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .message-actions {
+    right: 6px;
+  }
+
+  .attachment-image,
+  .attachment-video,
+  .attachment-file,
+  .attachment-audio {
+    max-width: 100%;
+  }
+
+  .friends-toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .friends-section-label {
+    order: 1;
+  }
+
+  .friends-search {
+    order: 2;
+    width: 100%;
+  }
+
+  .friends-search input {
+    width: 100%;
+  }
+
+  .toast-stack {
+    bottom: 12px;
+    width: calc(100vw - 20px);
+  }
+
+  .chat-empty h2 {
+    font-size: 22px;
+  }
+
+  .chat-empty p {
+    font-size: 14px;
+  }
+
+  .chat-empty .empty-art {
+    width: 150px;
+  }
+}
+
+@media (max-height: 560px) {
+  .auth-screen {
+    justify-content: flex-start;
+  }
+
+  .auth-card {
+    min-height: 0;
+  }
+}
